@@ -1,0 +1,50 @@
+{
+  "name": "byrd",
+  "version": "0.1.0",
+  "description": "fs l-w js dev lib",
+  "main": "lib/byrd.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toddlewis-studio/byrd.git"
+  },
+  "keywords": [
+    "ui",
+    "lib"
+  ],
+  "author": "todd lewis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toddlewis-studio/byrd/issues"
+  },
+  "homepage": "https://github.com/toddlewis-studio/byrd#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "buffer": "^6.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "firebase": "^10.2.0",
+    "firebase-admin": "^11.10.1",
+    "node-fetch": "^2.7.0",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "tls-toolkit": "^1.0.4",
+    "toml": "^3.0.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "scripts": {
+    "server": "cd test && webpack",
+    "frontend": "cd test && webpack --config ./webpack.frontend.js && npm run html && npm run style",
+    "html": "cd test && touch dist/index.html && rm dist/index.html && cp www/index.html dist/index.html",
+    "style": "cd test && rm -rf dist/style && cp -a www/style dist",
+    "build": "cd test && npm run server && npm run frontend",
+    "start": "node test/dist/app.js",
+    "serve": "cd test && npm run server && npm run start",
+    "refresh": "cd test && npm run build && npm run start"
+  },
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.1",
+    "toml": "^3.0.0",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}

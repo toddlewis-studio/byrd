@@ -12,7 +12,7 @@ byrd.register('main.counter', () => {
 byrd.element('home', () => {
   const counterId = byrd.event.guid()
   const testId = byrd.event.click(el => 
-    document.getElementById(counterId).innerText = 
+    byrd.id(counterId).innerText = 
       byrd.service`main.counter`()
   )
   return `
